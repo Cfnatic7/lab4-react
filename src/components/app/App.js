@@ -25,7 +25,7 @@ const App = () => {
         client.subscribe('/topic/public', (message) => {
           setMessages((prevMessages) => [...prevMessages, message.body]);
         });
-        client.subscribe('/user/' + username + '/private', (message) => {
+        client.subscribe('/queue/user/' + username, (message) => {
           setMessages((prevMessages) => [...prevMessages, message.body]);
         });
         client.subscribe('/topic/rooms/' + roomId, (message) => {
